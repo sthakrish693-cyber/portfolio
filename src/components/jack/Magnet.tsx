@@ -7,6 +7,8 @@ interface MagnetProps {
   activeTransition?: string;
   inactiveTransition?: string;
   className?: string;
+  initialX?: number;
+  initialY?: number;
 }
 
 export function Magnet({
@@ -16,9 +18,11 @@ export function Magnet({
   activeTransition = "transform 0.3s ease-out",
   inactiveTransition = "transform 0.6s ease-in-out",
   className,
+  initialX = 0,
+  initialY = 0,
 }: MagnetProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [pos, setPos] = useState({ x: initialX, y: initialY });
   const [active, setActive] = useState(false);
 
   useEffect(() => {
@@ -38,12 +42,12 @@ export function Magnet({
         setPos({ x: dx / strength, y: dy / strength });
       } else {
         setActive(false);
-        setPos({ x: 0, y: 0 });
+        setPos({ x: initialX, y: initialY });
       }
     };
     window.addEventListener("mousemove", handle);
     return () => window.removeEventListener("mousemove", handle);
-  }, [padding, strength]);
+  }, [initialX, initialY, padding, strength]);
 
   return (
     <div

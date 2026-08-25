@@ -3,16 +3,18 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { FadeIn } from "./FadeIn";
 import { LiveProjectButton } from "./LiveProjectButton";
 
-import projectReact from "@/assets/cp.png";
-import projectPersonal from "@/assets/project-personal.jpg";
-import projectShowcase from "@/assets/game.png";
-import projectResponsive from "@/assets/prot.png";
-import projectJsonDb from "@/assets/logo.jpg";
+import projectStudentProfile from "@/assets/dream.png";
+import projectPortfolio from "@/assets/midnight.png";
+import projectCybersecurity from "@/assets/academiax.png";
+import projectPlaceholder from "@/assets/pivot.png";
+import projectCybersecuritys from "@/assets/portfolio.png";
 
 interface Project {
   n: string;
   category: string;
   name: string;
+  description: string;
+  technologies: string;
   image: string;
   link: string;
 }
@@ -20,38 +22,39 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     n: "01",
-    category: "Web",
-    name: "Modern React Portfolio",
-    image: projectReact,
-    link: "https://github.com/Saboo24/Portfolio13.git",
+    category: "Web & Software",
+    name: "Dream Wedding",
+    description: "A wedding management system that allows users to plan and manage their wedding events, including guest lists, seating arrangements, and event schedules.",
+    technologies: "HTML, CSS, JavaScript",
+    image: projectStudentProfile,
+    link: "https://dreamweddingnp.netlify.app/",
   },
   {
     n: "02",
-    category: "Web",
-    name: "Personal Portfolio Website",
-    image: projectPersonal,
-    link: "https://github.com/Saboo24/Portfolio12.git",
+    category: "C Programming",
+    name: "The Midnight ",
+    description: "A simple C program that demonstrates the use of basic programming concepts, time ,including variables, loops, and functions .",
+    technologies: "C, Linux",
+    image: projectPortfolio,
+    link: "https://sthakrish.com.np/",
   },
   {
     n: "03",
-    category: "Web",
-    name: "Developer Portfolio Showcase",
-    image: projectShowcase,
-    link: "https://github.com/Saboo24/Portfolio11.git",
+    category: "web and hosting ",
+    name: "AcademiaX",
+    description: "AcademiaX is a web application that provides a platform for students and parents to watch sports events and esports competitions.",
+    technologies: "HTML, CSS, JavaScript, php, MySQL",
+    image: projectCybersecurity,
+    link: "https://streamingacademia.netlify.app/",
   },
   {
     n: "04",
     category: "Web",
-    name: "Responsive Portfolio Experience",
-    image: projectResponsive,
-    link: "https://github.com/Saboo24/Portfolio12.git",
-  },
-  {
-    n: "05",
-    category: "Software",
-    name: "Mini JSON Database",
-    image: projectJsonDb,
-    link: "https://github.com/Saboo24/MiniJSONDatabase.git",
+    name: "Krish Portfolio",
+    description: "A personal portfolio website that showcases my skills, projects, and experience as a web developer and cybersecurity enthusiast.",
+    technologies: "React, TypeScript, Tailwind CSS,framer-motion",
+    image: projectCybersecuritys,
+    link: "https://sthakrish.com.np/",
   },
 ];
 
@@ -84,7 +87,7 @@ function ProjectCard({
         className="
           rounded-[40px] sm:rounded-[50px] md:rounded-[60px]
           border border-white/10
-          bg-[#0C0C0C]/95
+          bg-[#151A1F]/95
           backdrop-blur-xl
           p-4 sm:p-6 md:p-8
           shadow-[0_0_60px_rgba(255,255,255,0.03)]
@@ -117,6 +120,12 @@ function ProjectCard({
                 }}
               >
                 {project.name}
+              </span>
+              <span className="max-w-xl text-sm leading-relaxed text-white/60">
+                {project.description}
+              </span>
+              <span className="text-xs uppercase tracking-[0.16em] text-white/40">
+                {project.technologies}
               </span>
             </div>
           </div>
@@ -199,7 +208,7 @@ export function ProjectsSection() {
       className="
         px-5 sm:px-8 md:px-10
         py-20 sm:py-24 md:py-32
-        bg-[#0C0C0C]
+        bg-[#151A1F]
       "
     >
       <FadeIn

@@ -6,35 +6,36 @@ import { ServicesSection } from "@/components/jack/ServicesSection";
 import { ProjectsSection } from "@/components/jack/ProjectsSection";
 import { SkillsSection } from "@/components/jack/SkillsSection";
 import { FooterSection } from "@/components/jack/FooterSection";
+import favicon from "@/assets/favicon.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Amine Hamzaoui | Computer Science Student & Software Developer",
+        title: "Krish Shrestha — Web Developer & Cybersecurity Enthusiast",
       },
       {
         name: "description",
         content:
-          "Amine Hamzaoui — Computer Science student at USTHB and software developer building practical, modern applications.",
+          "Portfolio of Krish Shrestha, a BCS CSIT student and developer from Nepal focused on web development, cybersecurity, and building practical digital products.",
       },
       {
         property: "og:title",
         content:
-          "Amine Hamzaoui | Computer Science Student & Software Developer",
+          "Krish Shrestha — Web Developer & Cybersecurity Enthusiast",
       },
       {
         property: "og:description",
         content:
-          "Amine Hamzaoui — Computer Science student at USTHB and software developer building practical, modern applications.",
+          "Portfolio of Krish Shrestha, a BCS CSIT student and developer from Nepal focused on web development, cybersecurity, and building practical digital products.",
       },
     ],
 
     links: [
       {
         rel: "icon",
-        type: "image/png",
-        href: "/favicon.png",
+        type: "image/svg+xml",
+        href: favicon,
       },
     ],
   }),
@@ -44,7 +45,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main style={{ background: "#0C0C0C", overflowX: "clip" }}>
+    <main style={{ background: "#151A1F", overflowX: "clip" }}>
       <HeroSection />
       <MarqueeSection />
       <AboutSection />

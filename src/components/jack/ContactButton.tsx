@@ -1,5 +1,5 @@
 export function ContactButton({
-  href = "mailto:aminehamzaoui1925@gmail.com",
+  href = "#contact",
 }: {
   href?: string;
 }) {
@@ -23,8 +23,8 @@ export function ContactButton({
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
         boxShadow: `
-          0 0 20px rgba(168, 85, 247, 0.35),
-          0 0 40px rgba(236, 72, 153, 0.20),
+          0 0 20px rgba(66, 214, 197, 0.35),
+          0 0 40px rgba(101, 184, 255, 0.20),
           inset 0 1px 1px rgba(255,255,255,0.12)
         `,
       }}

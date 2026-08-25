@@ -6,7 +6,7 @@ export function AboutSection() {
   return (
     <section id="about"
       className="relative min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20 gap-10 sm:gap-14 md:gap-16"
-      style={{ background: "#0C0C0C", overflowX: "clip" }}
+      style={{ background: "#151A1F", overflowX: "clip" }}
     >
       <FadeIn
         delay={0.1}
@@ -15,7 +15,7 @@ export function AboutSection() {
         duration={0.9}
         className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[120px] sm:w-[160px] md:w-[210px]"
       >
-        <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png" alt="" className="w-full h-auto" />
+        <span aria-hidden="true" className="text-6xl opacity-20">*</span>
       </FadeIn>
       <FadeIn
         delay={0.25}
@@ -24,7 +24,7 @@ export function AboutSection() {
         duration={0.9}
         className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] w-[100px] sm:w-[140px] md:w-[180px]"
       >
-        <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png" alt="" className="w-full h-auto" />
+        <span aria-hidden="true" className="text-6xl opacity-20">+</span>
       </FadeIn>
       <FadeIn
         delay={0.15}
@@ -33,7 +33,7 @@ export function AboutSection() {
         duration={0.9}
         className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] w-[120px] sm:w-[160px] md:w-[210px]"
       >
-        <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png" alt="" className="w-full h-auto" />
+        <span aria-hidden="true" className="text-6xl opacity-20">*</span>
       </FadeIn>
       <FadeIn
         delay={0.3}
@@ -42,7 +42,7 @@ export function AboutSection() {
         duration={0.9}
         className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] w-[130px] sm:w-[170px] md:w-[220px]"
       >
-        <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png" alt="" className="w-full h-auto" />
+        <span aria-hidden="true" className="text-6xl opacity-20">+</span>
       </FadeIn>
 
       <FadeIn delay={0} y={40} className="text-center relative z-10">
@@ -56,8 +56,8 @@ export function AboutSection() {
 
       <div className="relative z-10 flex flex-col items-center gap-16 sm:gap-20 md:gap-24">
         <AnimatedText
-          text="I am a Computer Science student at USTHB passionate about software development and problem-solving. I enjoy building practical applications, exploring new technologies, and continuously improving my programming skills."
-          className="text-[#D7E2EA] font-medium text-center leading-relaxed max-w-[560px]"
+          text="I’m Krish Shrestha, a BCS CSIT student at Academia International College, Nepal, with a strong interest in web development, cybersecurity, and emerging technologies. I enjoy building projects that solve practical problems, experimenting with new technologies, and continuously improving my development skills. My current focus is creating modern web applications while developing a stronger foundation in cybersecurity. I believe the best way to learn technology is by building, breaking, improving, and building again.I am passionate about learning and exploring different AI technologies, and I am always looking for opportunities to collaborate on exciting projects. I am eager to contribute my skills and enthusiasm to a team that values innovation, creativity, and continuous learning."
+          className="text-[#B8C2CC] font-medium text-center leading-relaxed max-w-[560px] cursor-default select-none"
           style={{ fontSize: "clamp(1rem, 2vw, 1.35rem)" }}
         />
         <ContactButton />

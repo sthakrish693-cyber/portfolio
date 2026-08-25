@@ -3,40 +3,40 @@ import { FadeIn } from "./FadeIn";
 const SERVICES = [
   {
     n: "01",
-    name: "Software Development",
-    desc: "Building reliable, well-structured software solutions tailored to real-world problems, with a focus on clean code and maintainability.",
+    name: "Web Development",
+    desc: "Building responsive, modern websites and web applications with clean and practical interfaces.",
   },
   {
     n: "02",
-    name: "Web Development",
-    desc: "Designing and developing modern, responsive websites and web applications using current frameworks and best practices.",
+    name: "Frontend Development",
+    desc: "Creating interactive and responsive user interfaces focused on usability and modern design.",
   },
   {
     n: "03",
-    name: "Desktop Application Development",
-    desc: "Creating efficient cross-platform desktop applications with intuitive interfaces and solid performance.",
+    name: "Backend & Database",
+    desc: "Developing functional backend systems and integrating databases for web applications.",
   },
   {
     n: "04",
-    name: "Database Design & Management",
-    desc: "Designing, structuring, and managing databases to ensure data integrity, scalability, and efficient querying.",
+    name: "Cybersecurity",
+    desc: "Exploring web security, vulnerability assessment, and practical cybersecurity techniques.",
   },
   {
     n: "05",
-    name: "Technical Problem Solving",
-    desc: "Analyzing complex technical challenges and delivering clear, efficient, and well-thought-out solutions.",
+    name: "Graphic & Canva Design",
+    desc: "Designing logos, certificates, social media graphics, presentation templates, and other polished visual materials using Canva and modern design tools.",
   },
 ];
 
 export function ServicesSection() {
   return (
-    <section id="services" className="px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32 bg-[#0C0C0C]">
+    <section id="services" className="px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32 bg-[#151A1F]">
       <div
         className="
           max-w-7xl mx-auto
           rounded-[40px] sm:rounded-[50px] md:rounded-[60px]
           border border-white/10
-          bg-[#0C0C0C]
+          bg-[#151A1F]
           px-6 sm:px-8 md:px-12
           py-12 sm:py-16 md:py-20
           shadow-[0_0_60px_rgba(255,255,255,0.03)]
