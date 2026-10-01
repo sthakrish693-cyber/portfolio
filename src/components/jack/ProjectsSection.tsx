@@ -1,13 +1,12 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { FadeIn } from "./FadeIn";
 import { LiveProjectButton } from "./LiveProjectButton";
 
 import projectStudentProfile from "@/assets/dream.png";
 import projectPortfolio from "@/assets/midnight.png";
-import projectCybersecurity from "@/assets/academiax.png";
-import projectPlaceholder from "@/assets/pivot.png";
-import projectCybersecuritys from "@/assets/portfolio.png";
+import projectAcademiaX from "@/assets/academiax.png";
+import projectkris from "@/assets/kris.png";
 
 interface Project {
   n: string;
@@ -17,44 +16,49 @@ interface Project {
   technologies: string;
   image: string;
   link: string;
+  secondaryLabel?: string;
 }
 
 const PROJECTS: Project[] = [
   {
     n: "01",
-    category: "Web & Software",
+    category: "Web app",
+    name: "AcademiaX",
+    description:
+      "A web platform where students and parents can watch college sports and esports events. I built the front end and the PHP/MySQL back end.",
+    technologies: "HTML, CSS, JavaScript, PHP, MySQL",
+    image: projectAcademiaX,
+    link: "https://streamingacademia.netlify.app/",
+    secondaryLabel: "Security audit write-up: coming soon",
+  },
+  {
+    n: "02",
+    category: "Web app",
     name: "Dream Wedding",
-    description: "A wedding management system that allows users to plan and manage their wedding events, including guest lists, seating arrangements, and event schedules.",
+    description:
+      "A wedding planning tool for managing guest lists, seating arrangements and event schedules. I built it to practise structuring a multi-feature interface.",
     technologies: "HTML, CSS, JavaScript",
     image: projectStudentProfile,
     link: "https://dreamweddingnp.netlify.app/",
   },
   {
-    n: "02",
-    category: "C Programming",
-    name: "The Midnight ",
-    description: "A simple C program that demonstrates the use of basic programming concepts, time ,including variables, loops, and functions .",
+    n: "03",
+    category: "C programming",
+    name: "The Midnight",
+    description:
+      "A command-line C program that uses variables, loops and functions to work with time. I wrote it to practise core C and the Linux terminal.",
     technologies: "C, Linux",
     image: projectPortfolio,
-    link: "https://sthakrish.com.np/",
-  },
-  {
-    n: "03",
-    category: "web and hosting ",
-    name: "AcademiaX",
-    description: "AcademiaX is a web application that provides a platform for students and parents to watch sports events and esports competitions.",
-    technologies: "HTML, CSS, JavaScript, php, MySQL",
-    image: projectCybersecurity,
-    link: "https://streamingacademia.netlify.app/",
+    link: "https://github.com/sthakrish693-cyber/The-Midnight",
   },
   {
     n: "04",
-    category: "Web",
-    name: "Krish Portfolio",
-    description: "A personal portfolio website that showcases my skills, projects, and experience as a web developer and cybersecurity enthusiast.",
-    technologies: "React, TypeScript, Tailwind CSS,framer-motion",
-    image: projectCybersecuritys,
-    link: "https://sthakrish.com.np/",
+    category: "React portfolio",
+    name: "This portfolio",
+    description: "Designed and built from scratch in React, TypeScript and Tailwind CSS.",
+    technologies: "React, TypeScript, Tailwind CSS, Framer Motion",
+    image: projectkris,
+    link: "https://sthakrish.com.np",
   },
 ];
 
@@ -69,35 +73,18 @@ function ProjectCard({
   total: number;
   progress: ReturnType<typeof useScroll>["scrollYProgress"];
 }) {
+  const shouldReduceMotion = useReducedMotion();
   const targetScale = 1 - (total - 1 - index) * 0.03;
-
-  const scale = useTransform(
-    progress,
-    [index / total, 1],
-    [1, targetScale]
-  );
+  const scale = useTransform(progress, [index / total, 1], [1, targetScale]);
 
   return (
-    <div
-      className="sticky top-24 md:top-32"
-      style={{ top: `${index * 28 + 96}px` }}
-    >
+    <div className="sticky top-24 md:top-32" style={{ top: `${index * 28 + 96}px` }}>
       <motion.div
-        style={{ scale }}
-        className="
-          rounded-[40px] sm:rounded-[50px] md:rounded-[60px]
-          border border-white/10
-          bg-[#151A1F]/95
-          backdrop-blur-xl
-          p-4 sm:p-6 md:p-8
-          shadow-[0_0_60px_rgba(255,255,255,0.03)]
-          transition-all duration-300
-          hover:border-white/20
-        "
+        style={{ scale: shouldReduceMotion ? 1 : scale }}
+        className="rounded-[40px] border border-white/10 bg-[#151A1F]/95 p-4 shadow-[0_0_60px_rgba(255,255,255,0.03)] backdrop-blur-xl transition-all duration-300 hover:border-white/20 sm:rounded-[50px] sm:p-6 md:rounded-[60px] md:p-8"
       >
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6 md:mb-8 px-2 sm:px-4">
-          <div className="flex items-center gap-4 sm:gap-6 md:gap-8 flex-wrap">
+        <div className="mb-6 flex flex-col justify-between gap-6 px-2 sm:px-4 md:mb-8 md:flex-row md:items-center">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8">
             <div
               className="hero-heading font-black text-white/15"
               style={{
@@ -109,7 +96,7 @@ function ProjectCard({
             </div>
 
             <div className="flex flex-col gap-1">
-              <span className="text-white/50 uppercase tracking-[0.25em] text-xs sm:text-sm">
+              <span className="text-xs uppercase tracking-[0.25em] text-white/50 sm:text-sm">
                 {project.category}
               </span>
 
@@ -130,62 +117,42 @@ function ProjectCard({
             </div>
           </div>
 
-          <LiveProjectButton href={project.link} />
+          <div className="flex flex-col items-start gap-3">
+            <LiveProjectButton href={project.link} />
+            {project.secondaryLabel ? (
+              <span className="text-xs uppercase tracking-[0.18em] text-white/45">
+                {project.secondaryLabel}
+              </span>
+            ) : null}
+          </div>
         </div>
 
-        {/* Images */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-          {/* Left */}
-          <div className="md:col-span-2 flex flex-col gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-5">
+          <div className="flex flex-col gap-4 md:col-span-2">
             <img
               src={project.image}
-              alt={project.name}
+              alt={`${project.name} project preview`}
               loading="lazy"
-              className="
-                w-full object-cover
-                rounded-[30px]
-                border border-white/10
-                hover:scale-[1.02]
-                transition-all duration-300
-              "
-              style={{
-                height: "clamp(140px,18vw,240px)",
-              }}
+              className="w-full rounded-[30px] border border-white/10 object-cover transition-all duration-300 hover:scale-[1.02]"
+              style={{ height: "clamp(140px,18vw,240px)" }}
             />
 
             <img
               src={project.image}
-              alt={project.name}
+              alt={`${project.name} project dashboard`}
               loading="lazy"
-              className="
-                w-full object-cover
-                rounded-[30px]
-                border border-white/10
-                hover:scale-[1.02]
-                transition-all duration-300
-              "
-              style={{
-                height: "clamp(180px,24vw,320px)",
-              }}
+              className="w-full rounded-[30px] border border-white/10 object-cover transition-all duration-300 hover:scale-[1.02]"
+              style={{ height: "clamp(180px,24vw,320px)" }}
             />
           </div>
 
-          {/* Main Image */}
           <div className="md:col-span-3">
             <img
               src={project.image}
-              alt={project.name}
+              alt={`${project.name} project layout`}
               loading="lazy"
-              className="
-                w-full h-full object-cover
-                rounded-[35px] md:rounded-[45px]
-                border border-white/10
-                hover:scale-[1.01]
-                transition-all duration-300
-              "
-              style={{
-                minHeight: "100%",
-              }}
+              className="h-full w-full rounded-[35px] border border-white/10 object-cover transition-all duration-300 hover:scale-[1.01] md:rounded-[45px]"
+              style={{ minHeight: "100%" }}
             />
           </div>
         </div>
@@ -203,41 +170,19 @@ export function ProjectsSection() {
   });
 
   return (
-    <section id="projects"
-      ref={containerRef}
-      className="
-        px-5 sm:px-8 md:px-10
-        py-20 sm:py-24 md:py-32
-        bg-[#151A1F]
-      "
-    >
-      <FadeIn
-        y={40}
-        className="text-center mb-16 sm:mb-20 md:mb-28"
-      >
+    <section id="projects" ref={containerRef} className="bg-[#151A1F] px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-32">
+      <FadeIn y={40} className="mb-16 text-center sm:mb-20 md:mb-28">
         <h2
-          className="
-            hero-heading
-            font-black
-            uppercase
-            leading-none
-            tracking-tight
-            text-white
-          "
-          style={{
-            fontSize: "clamp(3rem, 12vw, 160px)",
-          }}
+          className="hero-heading font-black uppercase leading-none tracking-tight text-white"
+          style={{ fontSize: "clamp(3rem, 12vw, 160px)" }}
         >
           Projects
         </h2>
       </FadeIn>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto max-w-7xl">
         {PROJECTS.map((project, index) => (
-          <div
-            key={project.n}
-            className="h-[85vh]"
-          >
+          <div key={project.n} className="h-[85vh]">
             <ProjectCard
               project={project}
               index={index}

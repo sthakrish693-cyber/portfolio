@@ -56,11 +56,12 @@ export function AboutSection() {
 
       <div className="relative z-10 flex flex-col items-center gap-16 sm:gap-20 md:gap-24">
         <AnimatedText
-          text="I’m Krish Shrestha, a BCS CSIT student at Academia International College, Nepal, with a strong interest in web development, cybersecurity, and emerging technologies. I enjoy building projects that solve practical problems, experimenting with new technologies, and continuously improving my development skills. My current focus is creating modern web applications while developing a stronger foundation in cybersecurity. I believe the best way to learn technology is by building, breaking, improving, and building again.I am passionate about learning and exploring different AI technologies, and I am always looking for opportunities to collaborate on exciting projects. I am eager to contribute my skills and enthusiasm to a team that values innovation, creativity, and continuous learning."
+          text="I'm a B.Sc. CSIT student at Academia International College in Kathmandu. I build web applications in PHP, JavaScript and React, and I'm now moving into security operations and application security, starting with how systems work and how they fail. I'm looking for a cybersecurity internship where I can learn from a security team and contribute with my development background."
+          ariaLabel="I'm a B.Sc. CSIT student at Academia International College in Kathmandu. I build web applications in PHP, JavaScript and React, and I'm now moving into security operations and application security, starting with how systems work and how they fail. I'm looking for a cybersecurity internship where I can learn from a security team and contribute with my development background."
           className="text-[#B8C2CC] font-medium text-center leading-relaxed max-w-[560px] cursor-default select-none"
           style={{ fontSize: "clamp(1rem, 2vw, 1.35rem)" }}
         />
-        <ContactButton />
+        <ContactButton label="Contact me" />
       </div>
     </section>
   );

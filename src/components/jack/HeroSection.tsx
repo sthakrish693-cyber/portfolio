@@ -7,7 +7,7 @@ import logo from "@/assets/logo.png";
 const NAV_LINKS = [
   "About",
   "Skills",
-  "Services",
+  "Progress",
   "Projects",
   "Contact",
 ];
@@ -48,6 +48,7 @@ export function HeroSection() {
               hover:opacity-70
               transition-opacity duration-200
               cursor-pointer
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#151A1F]
             "
           >
             {link}
@@ -76,7 +77,7 @@ export function HeroSection() {
               lg:text-[15.5vw]
             "
           >
-            Hi, i&apos;m Krish
+            Hi, I&apos;m Krish.
           </h1>
         </FadeIn>
       </div>
@@ -115,8 +116,7 @@ export function HeroSection() {
               fontSize: "clamp(0.75rem, 1.4vw, 1.5rem)",
             }}
           >
-            computer science student & web developer
-            cybersecurity enthusiast
+            CSIT student and web developer in Kathmandu, building toward a career in security.
           </p>
         </FadeIn>
 
@@ -157,7 +157,7 @@ export function HeroSection() {
         >
           <img
             src={profilePhoto}
-            alt="Krish Shrestha portrait placeholder"
+            alt="Portrait of Krish Shrestha"
             className="w-full h-auto select-none pointer-events-none"
             draggable={false}
           />

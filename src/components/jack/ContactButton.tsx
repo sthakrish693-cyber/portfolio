@@ -1,7 +1,9 @@
 export function ContactButton({
   href = "#contact",
+  label = "Contact me",
 }: {
   href?: string;
+  label?: string;
 }) {
   return (
     <a
@@ -16,6 +18,7 @@ export function ContactButton({
         transition-all duration-300
         hover:scale-105 hover:-translate-y-1
         active:scale-95
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#151A1F]
       "
       style={{
         background: "rgba(255,255,255,0.06)",
@@ -29,7 +32,7 @@ export function ContactButton({
         `,
       }}
     >
-      Contact Me
+      {label}
     </a>
   );
 }
