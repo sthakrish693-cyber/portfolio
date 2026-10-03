@@ -36,7 +36,7 @@ export function HeroSection() {
         {NAV_LINKS.map((link) => (
           <a
             key={link}
-            href={`#${link.toLowerCase()}`}
+            href={link === "Progress" ? "#security-work" : `#${link.toLowerCase()}`}
             className="
               text-[#D7E2EA]
               font-medium
